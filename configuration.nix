@@ -100,6 +100,7 @@
     users = {
       "flakelolz" = import ./home.nix;
     };
+    backupFileExtension = "backup";
   };
 
   # Enable automatic login for the user.
@@ -127,7 +128,6 @@
     lazygit
     eza
     tmux
-    wezterm
     kitty # required for the default Hyprland config
     starship
     neovim
@@ -150,6 +150,7 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.symbols-only
     inputs.zen-browser.packages."${system}".default
+    google-chrome
     vesktop
   ];
 
