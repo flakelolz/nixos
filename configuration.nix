@@ -104,7 +104,7 @@
   };
 
   # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = false;
+  services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "flakelolz";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
@@ -154,6 +154,8 @@
     google-chrome
     vesktop
     wezterm
+    libclang
+    mold
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
