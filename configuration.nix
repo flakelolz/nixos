@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -94,6 +95,13 @@
     ];
   };
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "flakelolz" = import ./home.nix;
+    };
+  };
+
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = false;
   services.displayManager.autoLogin.user = "flakelolz";
@@ -102,25 +110,8 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Programs
+  # Shell
   programs.fish.enable = true;
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/flakelolz/nixos/";
-  };
-  programs.hyprland.enable = true;
-  programs.git = {
-    enable = true;
-    config = {
-      user.name = "flakelolz";
-      user.email = "michaelgonzalez.code@gmail.com";
-      init = {
-        defaultBranch = "main";
-      };
-    };
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
