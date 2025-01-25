@@ -108,17 +108,18 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/flakelolz/dotfiles/nixos/";
+    flake = "/home/flakelolz/nixos/";
   };
   programs.hyprland.enable = true;
-  programs.git.config = {
-    user = {
-      name = "flakelolz";
-      email = "michaelgonzalez.code@gmail.com";
-    };
-    init = {
+  programs.git = {
+    enable = true;
+    config = {
+      user.name = "flakelolz";
+      user.email = "michaelgonzalez.code@gmail.com";
+      init = {
         defaultBranch = "main";
       };
+    };
   };
 
   # Allow unfree packages
@@ -127,7 +128,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git
     os-prober
     rustup
     zoxide
@@ -142,6 +142,7 @@
     neovim
     unzip
     xclip
+    wl-clipboard
     python314
     gcc14
     fastfetch
