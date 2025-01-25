@@ -17,8 +17,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.wezterm
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -69,8 +68,6 @@
   #  /etc/profiles/per-user/flakelolz/etc/profile.d/hm-session-vars.sh
   #
 
-  # xdg.configFile."wezterm/wezterm.lua".source = ./dotfiles/.config/wezterm/wezterm.lua;
-  # xdg.configFile."wezterm/wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "{config.home.homeDirectory}/nixos/dotfiles/.config/wezterm/wezterm.lua";
   xdg.configFile = {
     "wezterm" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/.config/wezterm/";

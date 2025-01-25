@@ -113,6 +113,7 @@
 
   # Shell
   programs.fish.enable = true;
+  programs.nix-ld.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -152,6 +153,7 @@
     inputs.zen-browser.packages."${system}".default
     google-chrome
     vesktop
+    wezterm
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
