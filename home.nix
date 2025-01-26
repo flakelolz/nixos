@@ -98,6 +98,20 @@
       recursive = true;
   };
 
+  xdg.configFile = {
+    "nvim" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/.config/nvim/";
+      recursive = true;
+    };
+  };
+
+  xdg.configFile = {
+    "starship.toml" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/.config/starship.toml";
+      recursive = true;
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "flakelolz";
