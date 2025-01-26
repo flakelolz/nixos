@@ -17,6 +17,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
+  boot.loader.grub.default = "saved";
+  boot.loader.timeout = 20;
+  boot.loader.grub.theme = "${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze";
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
