@@ -68,6 +68,17 @@
   #  /etc/profiles/per-user/flakelolz/etc/profile.d/hm-session-vars.sh
   #
 
+  home.sessionVariables = {
+    EDITOR = "neovim";
+  };
+
+  xdg.configFile = {
+    "fish" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/.config/fish/";
+      recursive = true;
+    };
+  };
+
   xdg.configFile = {
     "wezterm" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/.config/wezterm/";
@@ -75,8 +86,16 @@
     };
   };
 
-  home.sessionVariables = {
-    EDITOR = "neovim";
+  xdg.configFile = {
+    "tmux" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/.config/tmux/";
+      recursive = true;
+    };
+  };
+
+  home.file.".tmux" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/.tmux/";
+      recursive = true;
   };
 
   programs.git = {
@@ -96,6 +115,7 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/flakelolz/nixos/";
   };
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
