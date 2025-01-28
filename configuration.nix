@@ -143,9 +143,9 @@
     fastfetch
     nodejs_23
     cmake
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    vim
     aseprite
+    blender
     noto-fonts
     noto-fonts-extra
     noto-fonts-cjk-sans
@@ -159,6 +159,8 @@
     wezterm
     libclang
     mold
+    pavucontrol
+    whatsapp-for-linux
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
